@@ -1,0 +1,67 @@
+<style>
+  mat-icon {
+    top: 6px;
+    position: relative;
+    margin-right: 5px;
+    color: #003c6d;
+  }
+
+  mat-nav-list span:nth-child(2) {
+    color: #003c6d;
+    padding-left: 30px;
+    font-size: 12px !important;
+  }
+</style>
+<mat-nav-list>
+  <a mat-list-item (click)="openDialog(1)">
+    <span
+      mat-line>
+      <mat-icon>email_outline</mat-icon>
+      {{ 'accion_enviar_invitacion' | translate}}
+    </span>
+    <span
+      mat-line>Enviar invitacion</span>
+  </a>
+
+  <a mat-list-item (click)="openDialog(2)">
+    <span mat-line>
+      <mat-icon>no_meeting_room</mat-icon>
+      {{ 'accion_revocar' | translate}}</span>
+    <span mat-line>
+      {{ 'lab_accion_revocar' | translate}}
+    </span>
+  </a>
+
+  <a mat-list-item (click)="openDialog(3)">
+    <span mat-line>
+      <mat-icon>meeting_room</mat-icon>
+      {{ 'accion_asignar_dist' | translate}}
+    </span>
+    <span mat-line>
+      {{ 'lab_accion_asignar_dist' | translate}}
+    </span>
+  </a>
+
+
+  <a mat-list-item (click)="openDialog(5)">
+    <span mat-line>
+      <mat-icon>monetization_on</mat-icon>
+      {{ 'accion_comprar' | translate}}</span>
+    <span mat-line>{{ 'lab_accion_comprar' | translate}}</span>
+  </a>
+
+  <a mat-list-item (click)="openDialog(6)">
+    <span mat-line>
+      <mat-icon>autorenew</mat-icon>
+      {{ 'accion_renovar' | translate}}</span>
+    <span mat-line>{{ 'lab_accion_renovar' | translate}}</span>
+  </a>
+
+  <a mat-list-item (click)="openDialog(7)">
+    <span mat-line>
+      <mat-icon>delete</mat-icon>
+      {{ 'accion_borrar' | translate}}</span>
+    <span mat-line>{{ 'lab_accion_borrar' | translate}}</span>
+  </a>
+</mat-nav-list>
+

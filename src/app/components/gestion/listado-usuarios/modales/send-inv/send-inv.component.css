@@ -1,0 +1,43 @@
+mat-form-field {
+  width: 100%;
+}
+
+input {
+  width: 90%;
+}
+
+#usuarios {
+  height: 58px;
+  border: 1px solid #e2e2e2;
+  background-color: #fbfbfb;
+  overflow-y: auto;
+}
+
+#texto {
+  height: 190px;
+  border: 1px solid #e2e2e2;
+  background-color: #fbfbfb;
+  padding-top: 10px;
+}
+
+#usuarios span {
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  padding: 3px 0 3px 7px;
+  margin: 4px;
+  background-color: #fbfbfb;
+  box-sizing: border-box;
+  position: relative;
+  top: 2px;
+}
+
+#usuarios mat-icon {
+  position: relative;
+  margin-left: 9px;
+  font-size: 20px;
+}
+
+mat-icon {
+  top: 0 !important;
+}
+

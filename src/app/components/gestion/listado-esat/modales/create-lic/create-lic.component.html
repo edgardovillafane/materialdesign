@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>
+  {{ 'esat_mod_crear_licencia' | translate}}
+</h1>
+<div mat-dialog-content>
+  <form class="example-form">
+    <mat-form-field class="ancho-completo">
+      <mat-select
+        placeholder="{{ 'tree_mod_tipo_lic' | translate}}"
+        (selectionChange)="onChange($event.value)">
+        <mat-option *ngFor="let tipo of tipoLic"
+                    [value]="tipo.value">
+          {{tipo.shortName}} - {{tipo.longName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="medio-ancho">
+      <input
+        matInput type="number"
+        placeholder="{{ 'esat_mod_num_lic' | translate}}"
+        value="0"
+        #cantidad>
+    </mat-form-field>
+  </form>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    cdkFocusInitial
+    (click)="onLicenceAdd()">
+    {{ 'esat_mod_btn_enviar' |
+    translate}}
+  </button>
+</div>

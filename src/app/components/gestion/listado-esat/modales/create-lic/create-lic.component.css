@@ -1,0 +1,11 @@
+.medio-ancho {
+  width: 50%;
+}
+
+.ancho-completo {
+  width: 100%;
+}
+
+.mat-dialog-content {
+  min-height: 25vh;
+}

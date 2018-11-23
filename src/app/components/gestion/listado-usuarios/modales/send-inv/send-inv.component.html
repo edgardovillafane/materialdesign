@@ -1,0 +1,66 @@
+<h1 mat-dialog-title>
+  {{ 'users_mod_enviar_invitacion' | translate}}
+</h1>
+<div mat-dialog-content>
+  <form class="invitacion-esat">
+    <mat-form-field class="demo-chip-list">
+      <mat-chip-list #chipList>
+        <mat-chip
+          *ngFor="let email of emails"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(email)">
+          {{email}}
+          <mat-icon
+            matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="{{ 'esat_mod_buscar_por _email' | translate}} ..."
+          #emailInput
+          [formControl]="myCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)">
+        <mat-option
+          *ngFor="let email of filteredOptions | async"
+          [value]="email">
+          {{ email}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+    <mat-form-field>
+    <textarea
+      matInput
+      placeholder="{{ 'esat_mod_texto' | translate}}"
+      id="texto"
+      #texto>
+      {{body_email}}
+    </textarea>
+    </mat-form-field>
+  </form>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    disabled
+    color="primary"
+    (click)="onSendInvitacion()">
+    {{ 'esat_mod_btn_enviar' | translate}}
+  </button>
+</div>
+
+

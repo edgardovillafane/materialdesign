@@ -1,0 +1,77 @@
+.smartphone {
+  color: blue;
+}
+
+.smartphone svg {
+  fill: blue;
+}
+
+.settings {
+  color: green;
+}
+
+.settings svg {
+  fill: green;
+}
+.vpn_key {
+  color: #efb810;
+}
+
+.vpn_key svg {
+  fill: #efb810;
+}
+.phonelink_setup {
+  color: #f44336!important;
+}
+
+.phonelink_setup svg {
+  fill: #f44336;
+}
+
+mat-icon {
+  top: 0 !important;
+
+}
+mat-icon:hover {
+  background-color: transparent!important;
+
+}
+.center-icon {
+  left: 15px;
+}
+
+.mat-badge-content {
+  top: -6px !important;
+  right: -25px !important;
+
+}
+
+.chip-cont {
+  justify-content: center;
+  width: 80px;
+}
+
+.chip-cont mat-chip {
+  width: 45px;
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 2px 12px;
+}
+
+.col-listado-1 {
+  width: 50px;
+}
+
+.buscador {
+  font-size: 100%;
+
+}
+
+.mat-sort-header-button {
+  margin-left: 7px !important;
+}
+.paginator-fixed .mat-paginator-page-size{
+  margin-right: -15px !important;
+}

@@ -1,0 +1,11 @@
+mat-toolbar span {
+  font-size: 14px;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.active {
+  border-bottom: 2px solid gray;
+}

@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Renew Licence</h1>
+<div mat-dialog-content>
+  <mat-card>
+    <mat-card-subtitle>
+      Se renovarán las siguientes licencias
+    </mat-card-subtitle>
+    <mat-list>
+      <mat-list-item *ngFor="let item of items">
+        <span matLine class="lic elipsis">
+           <mat-icon [ngClass]="item.icono">{{item.icono}}</mat-icon>
+          {{item.nombre}}</span>
+        <span
+          matLine class="elipsis asig"
+          *ngIf="item.email!='-' ">{{item.email}}</span>
+        <span
+          matLine class="elipsis sinasig"
+          *ngIf="item.email=='-' ">Sin asignar</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="renovarLicencia()">
+    {{ 'esat_mod_btn_enviar' |
+    translate}}
+  </button>
+</div>
+

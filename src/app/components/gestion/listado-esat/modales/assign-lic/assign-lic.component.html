@@ -1,0 +1,67 @@
+<h1 mat-dialog-title>
+  {{ 'esat_mod_asignar_licencia' | translate}}</h1>
+<div mat-dialog-content>
+  <mat-card>
+    <mat-card-subtitle>
+      {{ 'esat_mod_sel_dist' | translate}}
+    </mat-card-subtitle>
+    <form class="example-form">
+      <mat-form-field class="ancho-completo">
+        <input
+          type="text"
+          placeholder=""
+          aria-label="seleccionar distribuidor"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+          #distribuidor>
+        <mat-icon>search</mat-icon>
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          [displayWith]="displayFn"
+          (optionSelected)="onSelectionChanged($event)">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+    <mat-divider></mat-divider>
+    <br>
+    <mat-card-subtitle>
+      {{ 'lab_accion_asignar_dist' | translate}}
+    </mat-card-subtitle>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let item of items">
+        <span
+          matLine class="lic elipsis">
+          <mat-icon [ngClass]="item.icono">{{item.icono}}</mat-icon>
+          {{item.nombre}}</span>
+        <span
+          matLine class="elipsis asig"
+          *ngIf="item.emailUser!='-' ">{{item.emailUser}}</span>
+        <span
+          matLine class="elipsis sinasig"
+          *ngIf="item.emailUser=='-' ">Sin asignar</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    cdkFocusInitial
+    (click)="onLicenceAss()">{{ 'esat_mod_btn_enviar' |
+    translate}}
+  </button>
+</div>

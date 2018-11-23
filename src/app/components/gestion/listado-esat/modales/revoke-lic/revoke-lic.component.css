@@ -1,0 +1,65 @@
+.mat-dialog-content {
+  min-height: 25vh;
+  padding: 16px 24px !important;
+}
+
+.lic {
+  color: #003c6d;
+  font-weight: bold;
+}
+
+.elipsis {
+  max-width: 340px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.asig {
+  font-size: 12px;
+  color: #7fb390;
+}
+
+.sinasig {
+  font-size: 12px;
+  color: darkgray;
+}
+
+mat-icon {
+  font-size: 20px;
+  width: 20px;
+  top: 3px !important;
+}
+
+mat-list-item {
+  height: 45px !important;
+}
+.smartphone {
+  color: blue;
+}
+
+.smartphone svg {
+  fill: blue;
+}
+
+.settings {
+  color: green;
+}
+
+.settings svg {
+  fill: green;
+}
+.vpn_key {
+  color: #efb810;
+}
+
+.vpn_key svg {
+  fill: #efb810;
+}
+.phonelink_setup {
+  color: #f44336!important;
+}
+
+.phonelink_setup svg {
+  fill: #f44336;
+}

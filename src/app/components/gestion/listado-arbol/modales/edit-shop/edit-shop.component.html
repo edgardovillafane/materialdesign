@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>
+  {{ 'tree_mod_editar_shop' | translate}}
+</h1>
+<div mat-dialog-content>
+  <mat-form-field class="medio">
+    <input
+      matInput type="text"
+      placeholder="{{ 'tree_mod_nombre' | translate}}"
+      #campo1
+      [value]="!datos?null:datos.name">
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput type="text"
+      placeholder="{{ 'tree_mod_direccion' | translate}}"
+      #campo2
+      [value]="!datos?null:datos.address">
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput type="text"
+      placeholder="{{ 'tree_mod_ciudad' | translate}}"
+      #campo3
+      [value]="!datos?null:datos.city">
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput type="text"
+      placeholder="{{ 'tree_mod_pais' | translate}}"
+      #campo4
+      [value]="!datos?null:datos.country">
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput type="text"
+      placeholder="{{ 'tree_mod_codigo_postal' | translate}}"
+      #campo5
+      [value]="!datos?null:datos.postalCode">
+  </mat-form-field>
+
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary" (click)="onEditShop()">
+    {{ 'esat_mod_btn_enviar' | translate}}
+  </button>
+</div>
+

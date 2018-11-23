@@ -1,0 +1,57 @@
+
+<form class="example-form">
+  <mat-form-field class="tres-cuartos">
+    <input type="text"
+           #search
+           placeholder="{{ 'tree_buscar' | translate}}"
+           [(ngModel)]="valueSearchTree"
+           matInput
+           [formControl]="mySearchNode"
+    >
+    <button mat-button
+            *ngIf="valueSearchTree"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="valueSearchTree='';setFiltrarNodo('')">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</form>
+
+<mat-icon
+  class="mat-icon right menu-dot"
+  (click)="openBottom(2)">
+  more_vert
+</mat-icon>
+<mat-tree
+  [dataSource]="dataSource"
+  [treeControl]="treeControl"
+  #tree>
+  <mat-tree-node
+    *matTreeNodeDef="let node"
+    matTreeNodeToggle
+    matTreeNodePadding
+    [matTreeNodeToggleRecursive]="true">
+    <div
+      class="nodo-nochild"
+      [class.active]="nodeIsActive(node)">
+      <button mat-icon-button disabled></button>
+      <mat-icon [ngClass]="getIcon(node.typeCompanyId)">
+        {{getIcon(node.typeCompanyId)}}
+      </mat-icon>
+      <mat-icon
+        class="mat-icon-rtl-mirror" *ngIf="treeControl.isExpandable(node)"
+      >
+        {{treeControl.isExpanded(node)
+        ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+      <span
+        class="nombrenodo"
+        (click)="onSelNode(node)"
+        [innerHTML]="node.filename"
+      >
+      </span>
+    </div>
+  </mat-tree-node>
+</mat-tree>

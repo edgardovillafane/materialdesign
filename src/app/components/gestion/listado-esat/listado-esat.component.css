@@ -1,0 +1,84 @@
+.gray-icon {
+  color: gray;
+}
+
+.gray-icon svg {
+  fill: gray;
+}
+
+.blue-icon {
+  color: blue;
+}
+
+.blue-icon svg {
+  fill: blue;
+}
+
+.green-icon {
+  color: green;
+}
+
+.green-icon svg {
+  fill: green;
+}
+.gold-icon {
+  color: #efb810;
+}
+
+.gold-icon svg {
+  fill: #efb810;
+}
+.orange-icon {
+  color: #f44336!important;
+}
+
+.orange-icon svg {
+  fill: #f44336;
+}
+mat-icon {
+  top: 0 !important;
+
+}
+mat-icon:hover {
+  background-color: transparent!important;
+
+}
+.center-icon {
+  left: 15px;
+}
+
+.mat-badge-content {
+  top: -6px !important;
+  right: -25px !important;
+
+}
+
+.chip-cont {
+  justify-content: center;
+  width: 80px;
+}
+
+.chip-cont mat-chip {
+  width: 45px;
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 2px 12px;
+}
+
+.col-listado-1 {
+  width: 50px;
+}
+
+.buscador {
+  font-size: 100%;
+
+}
+
+.mat-sort-header-button {
+  margin-left: 7px !important;
+}
+.paginator-fixed .mat-paginator-page-size{
+  margin-right: -15px !important;
+}

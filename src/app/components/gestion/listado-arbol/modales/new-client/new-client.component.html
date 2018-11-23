@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>
+  {{ 'tree_mod_nuevo_cliente' | translate}}
+</h1>
+<div mat-dialog-content>
+  <mat-form-field
+    class="ancho-completo">
+    <input
+      matInput type="text"
+      placeholder="{{ 'asignado_a' | translate}}"
+      disabled
+      value="{{this.globales.companyNameSelected$}}">
+    <input type="hidden"
+           #campo0
+           disabled
+           value="{{this.globales.companyIdSelected$}}">
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      type="text"
+      placeholder="{{ 'tree_mod_nombre' | translate}}"
+      #campo1>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      type="text"
+      placeholder="{{ 'tree_mod_direccion' | translate}}"
+      #campo2>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      type="text"
+      placeholder="{{ 'tree_mod_ciudad' | translate}}"
+      #campo3>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      type="text"
+      placeholder="{{ 'tree_mod_pais' | translate}}"
+      #campo4>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      type="text"
+      placeholder="{{ 'tree_mod_codigo_postal' | translate}}"
+      #campo5>
+  </mat-form-field>
+</div>
+<mat-divider></mat-divider>
+<div
+  mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onAddNewCompany()">
+    {{ 'esat_mod_btn_enviar' | translate}}
+  </button>
+</div>
+

@@ -1,0 +1,82 @@
+<div class="grid-container">
+  <div class="example-container"
+       [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{ 'tit_gestion' | translate}}</span>
+      <span>{{ 'tit_informes' | translate}}</span>
+      <span class="fill-space"></span>
+      <div class="log-user">
+        <div>{{nombre}}</div>
+        <div>{{rol}}</div>
+      </div>
+      <span><mat-icon class="user-icon"></mat-icon></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar>
+              <mat-icon>account_circle</mat-icon>
+            </div>
+            <mat-card-title>{{nombre}}</mat-card-title>
+            <mat-card-subtitle>{{rol}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+        <mat-card-title></mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+        <button mat-menu-item>
+            <span (click)="switchLanguage('es')" [class.active]="this.globales.language$ === 'es'"
+                  class="lang es">ES</span>
+        </button>
+        <button mat-menu-item>
+            <span (click)="switchLanguage('fr')" [class.active]="this.globales.language$ === 'fr'"
+                  class="lang fr">FR</span>
+        </button>
+        <button mat-menu-item>
+            <span (click)="switchLanguage('en')" [class.active]="this.globales.language$ === 'en'"
+                  class="lang gb">EN</span>
+        </button>
+        <button mat-menu-item>
+            <span (click)="switchLanguage('pt')" [class.active]="this.globales.language$ === 'pt'"
+                  class="lang pt">PT</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Ajustes</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>reply</mat-icon>
+          <span>Salir</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <mat-sidenav-container
+      class="example-sidenav-container"
+      [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav
+        #snav [opened]="screenWidth > 840"
+        [mode]="mobileQuery.matches ? 'push' : 'side'">
+        <div class="cont-flexi">
+          <mat-nav-list class="side-over">
+            <div *ngIf="this.globales.sideBack$">
+              <app-sidenav #sidenav></app-sidenav>
+            </div>
+            <div *ngIf="!this.globales.sideBack$">
+              <app-loading></app-loading>
+            </div>
+          </mat-nav-list>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <app-menu-superior #menusup></app-menu-superior>
+        <app-breadcrumb #breadcrumb></app-breadcrumb>
+        <app-container-listados #contlistados>
+        </app-container-listados>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

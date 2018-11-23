@@ -1,0 +1,37 @@
+.buscador {
+  font-size: 100%;
+}
+
+mat-chip {
+  top: 0;
+}
+
+mat-chip mat-icon {
+  top: 0;
+}
+
+mat-icon {
+  top: 0 !important;
+}
+
+.mat-form-field {
+  top: 0;
+  width: 280px !important;
+  height: 60px;
+}
+
+.mat-form-field-wrapper {
+  height: 50px;
+  padding-bottom: 0 !important;
+}
+
+.full-width {
+  padding: 0;
+  height: 40px;
+}
+.icon-red{
+  color: red;
+}
+.icon-green{
+  color: green;
+}

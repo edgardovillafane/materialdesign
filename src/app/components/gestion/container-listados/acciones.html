@@ -1,0 +1,273 @@
+<style>
+  mat-icon {
+    top: 6px;
+    position: relative;
+    margin-right: 5px;
+    color: #003c6d;
+  }
+
+  mat-nav-list span:nth-child(2) {
+    color: #003c6d;
+    padding-left: 30px;
+    font-size: 12px !important;
+  }
+
+  a.desactivado {
+    color: #e6e6e6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  a.desactivado mat-icon {
+    color: #e6e6e6;
+  }
+
+  .aviso {
+    color: #ffb89b !important;
+  }
+
+  .consejo {
+    color: #c3c3c3 !important;
+  }
+
+  .ayuda {
+    font-size: 16px !important;
+  }
+</style>
+<!-- ESAT -->
+<!-- SEND REQUEST -->
+<mat-nav-list *ngIf="data.idSeccion==1">
+  <a mat-list-item
+     (click)="openDialog(12)"
+     [class.desactivado]="data.seleccionados!=1||data.estado==1">
+    <span mat-line>
+      <mat-icon>email_outline</mat-icon>
+      {{ 'accion_enviar_invitacion' | translate}}
+    </span>
+    <span mat-line
+          *ngIf="data.seleccionados==0"
+          class="aviso">{{ 'acciones_no_seleccionado' | translate}}
+      <br>{{ 'acciones_solo_una' | translate}}</span>
+    <span mat-line
+          *ngIf="data.seleccionados==1&&data.estado==0">
+      {{ 'acciones_enviara' | translate}}</span>
+    <span mat-line
+          *ngIf="data.seleccionados==1&&data.estado==1"
+          class="aviso">
+      Usuario previamente asignado.<br>
+      Primero deberá revocar el usuario</span>
+    <span mat-line *ngIf="data.seleccionados>1"
+          class="aviso">{{data.seleccionados}}
+      {{ 'acciones_licencias_seleccionadas' | translate}}
+    <br>{{ 'acciones_solo_una' | translate}}</span>
+  </a>
+  <!-- REVOKE LICENSE -->
+
+  <a mat-list-item (click)="openDialog(13)"
+     [class.desactivado]="data.seleccionados==0"
+     *ngIf="auth.isCompanyAuthorized([C_DWF,C_MAN]) || auth.isUserAuthorized([U_DWF,U_MAN])">
+    <span mat-line>
+      <mat-icon>no_meeting_room</mat-icon>
+      {{ 'accion_revocar' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados==0"
+          class="aviso">{{ 'acciones_no_seleccionado' | translate}}
+      <br>{{ 'acciones_seleccione_una' | translate}}</span>
+    <span mat-line
+          *ngIf="data.seleccionados==1">
+      {{ 'acciones_revocara' | translate}}</span>
+    <span mat-line
+          *ngIf="data.seleccionados>1">{{data.seleccionados}}
+      {{ 'acciones_licencias_seleccionadas' | translate}}
+      <br>{{ 'acciones_revocar_todas' | translate}}</span>
+  </a>
+  <!-- CREATE LICENCE -->
+  <a mat-list-item (click)="openDialog(14)"
+     *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])">
+    <span
+      mat-line><mat-icon>meeting_room</mat-icon>
+      {{ 'crear_licencia' | translate}}</span>
+    <span
+      mat-line>{{ 'lab_crear_nueva_licencia' | translate}}</span>
+  </a>
+  <!-- ASSIGN LICENSE -->
+  <a mat-list-item (click)="openDialog(15)"
+     [class.desactivado]="data.seleccionados==0"
+     *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])">
+    <span mat-line><mat-icon>subdirectory_arrow_right</mat-icon>
+      {{ 'accion_asignar_dist' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados==0" class="aviso">
+      {{ 'acciones_no_seleccionado' | translate}}
+      <br>{{ 'acciones_seleccione_una' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados==1">
+      {{ 'acciones_asignara' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados>1">
+      {{data.seleccionados}}
+      {{ 'acciones_licencias_seleccionadas' | translate}}
+      <br>{{ 'acciones_asignar_todas' | translate}}</span>
+  </a>
+  <!-- BUY LICENCE -->
+  <a mat-list-item (click)="openDialog(17)"
+     *ngIf="auth.isUserAuthorized([U_DIA,U_SDA, U_CLI, U_UFA])&&
+  auth.isCompanyAuthorized([C_DIA,C_SDA, C_CLI])">
+    <span mat-line><mat-icon>monetization_on</mat-icon>
+      {{ 'accion_comprar' | translate}}</span>
+    <span mat-line>{{ 'lab_accion_comprar' | translate}}</span>
+  </a>
+  <!-- RENEW LICENSE -->
+  <a mat-list-item (click)="openDialog(18)"
+     [class.desactivado]="data.seleccionados==0">
+    <span mat-line><mat-icon>autorenew</mat-icon>
+      {{ 'accion_renovar' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados==0" class="aviso">
+      {{ 'acciones_no_seleccionado' | translate}}
+      <br>{{ 'acciones_seleccione_una' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados==1">
+      {{ 'acciones_renovara' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados>1">
+      {{data.seleccionados}}
+      {{ 'acciones_licencias_seleccionadas' | translate}}
+      <br>{{ 'acciones_renovar_todas' | translate}}</span>
+  </a>
+  <!-- DELETE LICENSE -->
+  <a mat-list-item (click)="openDialog(19)"
+     [class.desactivado]="data.seleccionados==0"
+     *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])">
+    <span mat-line><mat-icon>delete</mat-icon>
+      {{ 'accion_borrar' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados==0" class="aviso">
+      {{ 'acciones_no_seleccionado' | translate}}
+      <br>{{ 'acciones_seleccione_una' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados==1">
+      {{ 'acciones_borrara' | translate}}</span>
+    <span mat-line *ngIf="data.seleccionados>1">
+      {{data.seleccionados}}
+      {{ 'acciones_licencias_seleccionadas' | translate}}
+      <br>{{ 'acciones_borrar_todas' | translate}}</span>
+  </a>
+</mat-nav-list>
+
+<!-- ARBOL -->
+<!-- CREATE DISTRIBUTOR -->
+<mat-nav-list *ngIf="data.idSeccion==2">
+  <a mat-list-item (click)="openDialog(22)"
+     *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+     auth.isCompanyAuthorized([C_DWF,C_MAN])">
+    <span mat-line><mat-icon>create_new_folder</mat-icon>
+      {{ 'crear_nuevo_distribuidor' | translate}}</span>
+    <span mat-line>
+      {{ 'lab_crear_nuevo_distribuidor' | translate}}
+    </span>
+  </a>
+  <!-- CREATE CLIENT -->
+  <a mat-list-item (click)="openDialog(23)"
+     *ngIf="auth.isUserAuthorized([U_DWF, U_MAN, U_DIA])&&
+     auth.isCompanyAuthorized([C_DWF,C_MAN, C_DIA])">
+    <span mat-line><mat-icon>person_add</mat-icon>
+      {{ 'crear_nuevo_cliente' | translate}}</span>
+    <span mat-line>
+      {{ 'lab_crear_nuevo_cliente' | translate}}</span>
+  </a>
+  <!-- CREATE SHOP -->
+  <a mat-list-item
+     [class.desactivado]="globales.companyIdSelected$!=auth.getCompanyId()"
+     (click)="openDialog(24)"
+     *ngIf="auth.isUserAuthorized([U_DWF, U_MAN, U_DIA, U_CLI])&&
+     auth.isCompanyAuthorized([C_DWF,C_MAN, C_DIA, C_CLI])&&!isShop()">
+    <span mat-line><mat-icon>add_location</mat-icon>
+      {{ 'crear_nuevo_local' | translate}}</span>
+    <span mat-line *ngIf="globales.companyIdSelected$==auth.getCompanyId()">
+      {{ 'lab_crear_nuevo_local' | translate}}</span>
+
+    <span mat-line *ngIf="globales.companyIdSelected$!=auth.getCompanyId()"
+          class="aviso">Solo puede crear locales de su propia compañía
+      <br>Seleccione su propia compañía del arbol para crear un local</span>
+
+  </a>
+  <!-- EDIT NODE -->
+  <a mat-list-item (click)="openDialog(25)"
+     *ngIf="auth.isUserAuthorized([U_DWF, U_MAN, U_DIA, U_CLI])&&
+     auth.isCompanyAuthorized([C_DWF,C_MAN, C_DIA, C_CLI])&&!isShop()">
+    <span mat-line><mat-icon>edit</mat-icon>
+      {{ 'editar_nodo_seleccionado' | translate}}</span>
+    <span mat-line>
+      {{ 'lab_editar_nodo_seleccionado' | translate}}</span>
+  </a>
+  <!-- MOVE NODE -->
+  <a mat-list-item (click)="openDialog(26)"
+     *ngIf="auth.isUserAuthorized([U_DWF, U_MAN, U_DIA, U_CLI])&&
+     auth.isCompanyAuthorized([C_DWF,C_MAN, C_DIA, C_CLI])&&!isShop()">
+    <span mat-line><mat-icon>open_with</mat-icon>
+      {{ 'mover_nodo_seleccionado' | translate}}</span>
+    <span mat-line>
+      {{ 'lab_mover_nodo_seleccionado' | translate}}</span>
+  </a>
+  <!-- DELETE NODE -->
+  <a
+    *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])&&!isShop()"
+    mat-list-item
+    (click)="openDialog(27)"
+  >
+    <span mat-line><mat-icon>delete_sweep</mat-icon>
+      {{ 'eliminar_nodo_seleccionado' | translate}}</span>
+    <span mat-line>
+      {{ 'lab_eliminar_nodo_seleccionado' | translate}}</span>
+  </a>
+
+<!-- EDIT SHOP -->
+<a mat-list-item (click)="openDialog(28)"
+   *ngIf="auth.isUserAuthorized([U_DWF, U_MAN, U_DIA, U_CLI])&&
+     auth.isCompanyAuthorized([C_DWF,C_MAN, C_DIA, C_CLI])&&isShop()">
+    <span mat-line><mat-icon>edit</mat-icon>
+      {{ 'editar_shop_seleccionado' | translate}}</span>
+  <span mat-line>
+      {{ 'lab_editar_shop_seleccionado' | translate}}</span>
+</a>
+<!-- DELETE SHOP -->
+<a
+  mat-list-item (click)="openDialog(29)"
+  *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])&&isShop()"
+>
+    <span mat-line><mat-icon>delete_sweep</mat-icon>
+      {{ 'eliminar_shop_seleccionado' | translate}}</span>
+  <span mat-line>
+      {{ 'lab_eliminar_shop_seleccionado' | translate}}</span>
+</a>
+</mat-nav-list>
+
+<!-- USUARIOS -->
+<mat-nav-list *ngIf="data.idSeccion==3">
+  <a mat-list-item (click)="openDialog(32)">
+    <span mat-line><mat-icon>email_outline</mat-icon>
+      {{ 'accion_enviar_invitacion' | translate}}</span>
+    <span mat-line>
+      {{ 'lab_accion_enviar_invitacion' | translate}}</span>
+  </a>
+  <a mat-list-item (click)="openDialog(33)"
+     *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])">
+    <span mat-line>
+      <mat-icon>person_add</mat-icon>
+      Alta de Usuario</span>
+    <span mat-line>Alta de Usuario</span>
+  </a>
+  <a mat-list-item (click)="openDialog(34)"
+     *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])">
+    <span mat-line><mat-icon>create</mat-icon>
+      Editar Usuario</span>
+    <span mat-line>Editar Usuario</span>
+  </a>
+  <a mat-list-item (click)="openDialog(35)"
+     *ngIf="auth.isUserAuthorized([U_DWF,U_MAN])&&
+  auth.isCompanyAuthorized([C_DWF,C_MAN])">
+    <span mat-line>
+      <mat-icon>remove_circle</mat-icon>
+      Borrar Usuario</span>
+    <span mat-line>Borrar Usuario</span>
+  </a>
+</mat-nav-list>

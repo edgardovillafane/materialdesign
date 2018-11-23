@@ -1,0 +1,27 @@
+mat-form-field {
+  width: 100%;
+}
+
+input {
+  width: 90%;
+}
+
+#usuarios {
+  height: 58px;
+  border: 1px solid #e2e2e2;
+  background-color: #fbfbfb;
+  overflow-y: auto;
+}
+
+#texto {
+  height: 220px;
+  border: 1px solid #e2e2e2;
+  background-color: #fbfbfb;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+mat-icon {
+  top: 0 !important;
+}
+

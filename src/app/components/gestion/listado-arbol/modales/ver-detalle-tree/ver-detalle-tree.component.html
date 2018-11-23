@@ -1,0 +1,82 @@
+<h1
+  mat-dialog-title>
+  {{ 'tree_mod_detalle_dispositivo' | translate}}</h1>
+<div
+  mat-dialog-content>
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      placeholder="{{ 'tree_mod_dispositivo' | translate}}"
+      value="{{data.distributionName}}" disabled>
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput
+      placeholder="{{ 'tree_mod_familia' | translate}}"
+      value="{{data.family}}" disabled>
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput
+      placeholder="{{ 'tree_mod_tipo' | translate}}"
+      value="{{data.TypeDeviceId}}" disabled>
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput
+      placeholder="{{ 'tree_mod_serie' | translate}}"
+      value="{{data.serial_number}}" disabled>
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput placeholder="{{ 'tree_mod_alarmas' | translate}}"
+      value="{{data.alarmas}}" disabled>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput placeholder="{{ 'tree_mod_status' | translate}}"
+      value="{{data.status}}" disabled>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput placeholder="{{ 'tree_mod_firmware' | translate}}"
+      value="{{data.firmware_version}}"
+      disabled>
+  </mat-form-field>
+
+
+  <mat-divider></mat-divider>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="primary">{{ 'tree_mod_ver_hist_fallos' | translate}}
+    </button>
+    <button
+      mat-raised-button
+      color="primary">
+      {{ 'tree_mod_ver_hist_intervenciones' | translate}}
+    </button>
+    <button
+      mat-raised-button
+      color="primary">
+      {{ 'tree_mod_ver_instalados' | translate}}
+    </button>
+    <button
+      mat-raised-button
+      color="primary">
+      {{ 'tree_mod_ver_hist_eventos' | translate}}
+    </button>
+    <mat-divider></mat-divider>
+    <button
+      mat-raised-button
+      color="default"
+      (click)="onNoClick()">
+      {{ 'esat_mod_btn_cerrar' | translate}}
+    </button>
+  </div>
+</div>
+

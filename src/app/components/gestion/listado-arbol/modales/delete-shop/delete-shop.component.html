@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>{{ 'tree_mod_borrar_shop' | translate}}</h1>
+<div mat-dialog-content>
+
+    {{ 'tree_mod_borrar_shop_msg' | translate}}
+
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-raised-button
+          color="primary" (click)="onDeleteShop()">
+    {{ 'esat_mod_btn_enviar' | translate}}
+  </button>
+  <button mat-button (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+</div>

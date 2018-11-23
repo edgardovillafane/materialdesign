@@ -1,0 +1,58 @@
+.mat-dialog-content {
+  min-height: 64vh;
+}
+
+h1 {
+  color: #003c6d;
+}
+
+.medio {
+  width: 50%;
+}
+
+.cuarto {
+  width: 22%;
+  margin-right: 3%;
+}
+
+.tel-edit input {
+  width: 80%;
+}
+
+mat-icon {
+  top: 0 !important;
+}
+
+mat-card {
+  padding: 15px;
+}
+
+mat-card-subtitle {
+  text-align: center;
+  color: #003c6d;
+}
+
+mat-chip {
+  margin: 0 auto 30px auto !important;
+  font-size: 18px;
+}
+
+.mat-input-element:disabled {
+  color: rgba(0, 0, 0, .78);
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.head-detalle {
+  display: flex;
+  justify-content: space-around;
+}
+
+.chip-hist {
+  width: 33px;
+  height: 25px;
+  margin-right: 10px !important;
+  margin-top: 30px !important;
+}

@@ -1,0 +1,25 @@
+.man-login-card {
+  min-width: 301px;
+  max-width: 80%;
+  box-sizing: border-box;
+}
+
+.login-card {
+  max-width: 400px;
+}
+
+.login-header-image {
+  background-image: url('../../../assets/img/icon_192.png');
+  background-size: cover;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.break {
+  width: 400px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+
+}

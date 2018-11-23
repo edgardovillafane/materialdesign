@@ -1,0 +1,48 @@
+<div fxLayout="row"
+     fxLayoutAlign="center center"
+     style="height: 90vh;">
+  <mat-card class="man-login-card">
+    <mat-card-header>
+      <div
+        mat-card-avatar
+        class="login-header-image"></div>
+      <mat-card-title>MANUSA</mat-card-title>
+      <mat-card-subtitle>ESAT</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form autocomplete="off"
+            (keyup.enter)="doLogin()">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="User"
+            #user
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            #password
+            autocomplete="new-password"
+          >
+        </mat-form-field>
+
+        <div fxLayout="row"
+             fxLayoutAlign="center center"
+             style="width: 100%">
+          <button type="button"
+                  mat-raised-button
+                  color="primary"
+                  (click)="doLogin()">Login
+          </button>
+        </div>
+        <mat-error
+          class="break">{{verToken}}</mat-error>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+

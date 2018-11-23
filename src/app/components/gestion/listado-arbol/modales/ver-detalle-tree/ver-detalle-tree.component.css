@@ -1,0 +1,35 @@
+.mat-dialog-content {
+  min-height: 66vh;
+}
+
+h1 {
+  color: #003c6d;
+}
+
+.medio {
+  width: 50%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-subtitle {
+  text-align: center;
+  color: #003c6d;
+}
+
+mat-chip {
+  margin: 0 auto 30px auto !important;
+  font-size: 18px;
+}
+
+.mat-input-element:disabled {
+  color: rgba(0, 0, 0, .78);
+}
+
+button {
+  margin-bottom: 10px;
+  margin-left: 0 !important;
+  margin-right: 10px;
+}

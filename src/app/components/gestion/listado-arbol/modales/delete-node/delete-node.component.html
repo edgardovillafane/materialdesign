@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{ 'tree_mod_borrar_nodo' | translate}}</h1>
+<div mat-dialog-content>
+  <mat-card>
+    {{ 'tree_mod_borrar_nodo_msg' | translate}}
+  </mat-card>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-raised-button
+          color="primary" (click)="onDeleteNodo()">
+    {{ 'esat_mod_btn_enviar' | translate}}
+  </button>
+  <button mat-button (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+</div>
+

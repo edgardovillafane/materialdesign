@@ -1,0 +1,11 @@
+.ancho-completo {
+  width: 100%;
+}
+
+.mat-dialog-content {
+  min-height: 25vh;
+}
+
+textarea {
+  min-height: 15vh;
+}

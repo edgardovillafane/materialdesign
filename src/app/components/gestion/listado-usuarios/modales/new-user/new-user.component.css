@@ -1,0 +1,25 @@
+.mat-dialog-content {
+  min-height: 25vh;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  min-height: 15vh;
+}
+
+.medio {
+  width: 40%;
+  margin-right: 10%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-icon {
+  top: 0 !important;
+  color: #003c6d;
+}

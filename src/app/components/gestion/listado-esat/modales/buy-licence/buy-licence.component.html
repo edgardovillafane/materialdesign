@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>
+  {{ 'esat_mod_comprar_licencia' | translate}}
+</h1>
+<div mat-dialog-content>
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      type="text"
+      placeholder="{{ 'asignado_a' | translate}}"
+      #campo0
+      disabled
+      value="{{this.globales.companyNameSelected$}}">
+    <input
+      type="hidden"
+      #campo1
+      value="{{this.globales.companyIdSelected$}}">
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      type="text"
+      placeholder="{{ 'esat_mod_alias' | translate}}" #campo2>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <mat-select
+      [(ngModel)]="selectedValue"
+      placeholder="{{ 'tree_mod_tipo_lic' | translate}}"
+      #campo3>
+      <mat-option
+        *ngFor="let tipo of tiposLic"
+        [value]="tipo.value">
+        {{tipo.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      [matDatepicker]="creada"
+      placeholder="{{ 'tree_mod_fecha_ad' | translate}}"
+      #campo4>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="creada"></mat-datepicker-toggle>
+    <mat-datepicker #creada></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      [matDatepicker]="caduca"
+      placeholder="{{ 'tree_mod_fecha_ca' | translate}}"
+      #campo5>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="caduca"></mat-datepicker-toggle>
+    <mat-datepicker
+      #caduca></mat-datepicker>
+  </mat-form-field>
+
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onAddNewElement()">
+    {{ 'esat_mod_btn_enviar' | translate}}
+  </button>
+</div>

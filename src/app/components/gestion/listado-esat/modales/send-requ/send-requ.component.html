@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>{{ 'esat_mod_tit_invitacion' | translate}}</h1>
+<div mat-dialog-content>
+
+  <form class="invitacion-esat">
+    <mat-form-field class="ancho-completo">
+      <input
+        type="text"
+        spellcheck="false"
+        placeholder="{{ 'esat_mod_buscar_por _email' | translate }}"
+        aria-label="Number"
+        matInput [formControl]="myCtrl"
+        #email
+        [matAutocomplete]="auto"
+
+      >
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+    <mat-form-field>
+    <textarea
+      matInput
+      spellcheck="false"
+      placeholder="{{ 'esat_mod_texto' | translate}}"
+      id="texto"
+      #texto
+    >
+      {{body_email}}
+    </textarea>
+    </mat-form-field>
+  </form>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onSendInvitacion()">
+    {{ 'esat_mod_btn_enviar' | translate}}
+  </button>
+</div>

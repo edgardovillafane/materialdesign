@@ -1,0 +1,141 @@
+<div class="scroller-wrap">
+  <div class="cont-listado">
+    <mat-toolbar class="buscador">
+      <span>
+        <mat-form-field class="example-form-field">
+          <input
+            matInput
+            #buscador
+            type="text"
+            placeholder="{{ 'buscar_por_alias' | translate}}"
+            (keyup)="setListadoUsuarios()">
+          <button
+            mat-button
+            *ngIf="buscador.value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="buscador.value='';setListadoUsuarios()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </span>
+      <span class="fill-space"></span>
+      <span>
+      <button
+        mat-raised-button
+        (click)="openBottom(3)">
+        {{ 'btn_acciones' | translate}}
+      </button>
+      </span>
+    </mat-toolbar>
+    <table mat-table [dataSource]="dataSource" >
+      <ng-container matColumnDef="check">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox [(ngModel)]="marcados" (change)="selAll($event)"></mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox
+            [checked]="marcados"
+            (click)="onSelCheckbox(element)"></mat-checkbox>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+        <th
+          mat-header-cell
+          *matHeaderCellDef>
+          {{ 'col_nombre' | translate}}
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element">
+          {{element.name}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="apellido">
+        <th
+          mat-header-cell
+          *matHeaderCellDef>
+          {{ 'col_apellido' | translate}}
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element">
+          {{element.surname}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th
+          mat-header-cell
+          *matHeaderCellDef>{{ 'col_email' | translate}}
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element">
+          {{element.email}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="telefono">
+        <th
+          mat-header-cell
+          *matHeaderCellDef>
+          {{ 'col_telefono' | translate}}
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element">
+          {{element.telephone}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="rol">
+        <th
+          mat-header-cell
+          *matHeaderCellDef>
+          {{ 'col_rol' | translate}}
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element">
+          <mat-icon [NgClass]="element.roleId"
+                    matTooltip="{{getRoleName(element.roleId)}}"
+                    [class.icon-red]="isAdmin(element.roleId)"
+                    [class.icon-green]="!isAdmin(element.roleId)"
+          >
+            person
+          </mat-icon>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="detalle">
+        <th
+          mat-header-cell
+          *matHeaderCellDef>
+          {{ 'col_detalle' | translate}}
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openView(element)">
+            {{ 'btn_ver' | translate}}
+          </button>
+        </td>
+      </ng-container>
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator
+      #contPaginator ngClass="paginator-fixed"
+      [length]="totalRegistros"
+      [pageSize]="25"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="setListadoUsuarios()">
+      <span class="fill-space"></span>
+    </mat-paginator>
+  </div>
+</div>

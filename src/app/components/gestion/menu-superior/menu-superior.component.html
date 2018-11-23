@@ -1,0 +1,20 @@
+<mat-toolbar>
+    <span><button
+      [class.active]="this.globales.seccionId$==4"
+      mat-button (click)="goList(4)">{{ 'menu_licencias' | translate}}
+  </button></span>
+  <span><button
+    [class.active]="this.globales.seccionId$==1"
+    mat-button (click)="goList(1)">{{ 'menu_esat' | translate}}
+  </button></span>
+  <span><button
+    [class.active]="this.globales.seccionId$==2"
+    mat-button (click)="goList(2)">{{ 'menu_arbol' | translate}}
+  </button></span>
+  <span><button
+    [class.active]="this.globales.seccionId$==3"
+    mat-button (click)="goList(3)">{{ 'menu_usuarios' | translate}}
+  </button></span>
+  <span class="fill-space"></span>
+  <span></span>
+</mat-toolbar>

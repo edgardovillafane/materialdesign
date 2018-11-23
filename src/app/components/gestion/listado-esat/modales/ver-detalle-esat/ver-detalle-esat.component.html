@@ -1,0 +1,116 @@
+<div class="head-detalle">
+  <span>
+    <h1 mat-dialog-title>{{ 'esat_mod_detalle_licencia' | translate}}</h1>
+  </span>
+  <span class="fill-space"></span>
+  <span>
+  <mat-icon (click)="edit()">{{iconoSel}}</mat-icon>
+  </span>
+</div>
+<div mat-dialog-content>
+  <mat-form-field class="medio">
+    <input
+      matInput #campo1
+      placeholder="{{ 'esat_mod_alias' | translate}}"
+      value="{{data.name}}"
+      [disabled]="abre"
+    >
+  </mat-form-field>
+
+  <mat-form-field class="medio tel-edit">
+    <input
+      class="tel-edit"
+      matInput placeholder="{{ 'tree_mod_telefono' | translate}}"
+      value="{{data.telephone}}"
+      [disabled]="true"
+      #campo2
+    >
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input matInput
+           placeholder="{{ 'tree_mod_email' | translate}}"
+           value="{{data.email}}"
+           [disabled]="true"
+           #campo3
+    >
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput
+      placeholder="{{ 'tree_mod_tipo_lic' | translate}}"
+      value="{{data.typeLicenseName}}"
+      [disabled]="true"
+      #campo4
+    >
+  </mat-form-field>
+
+
+  <mat-form-field class="medio">
+    <input
+      matInput placeholder="{{ 'tree_mod_fecha_ad' | translate}}"
+      value="{{data.createdAt | date: 'dd/MM/yyyy'}}"
+      disabled>
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput placeholder="{{ 'tree_mod_fecha_ca' | translate}}"
+      value="{{data.caducity | date: 'dd/MM/yyyy'}}"
+      disabled>
+  </mat-form-field>
+
+  <mat-divider></mat-divider>
+  <mat-grid-list cols="3" rowHeight="150px">
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-subtitle>
+          {{ 'esat_mod_puertas_instaladas' | translate}}
+        </mat-card-subtitle>
+        <mat-chip-list>
+          <mat-chip color="primary">{{instaladas}}</mat-chip>
+        </mat-chip-list>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-subtitle>
+          {{ 'esat_mod_puertas_mantenidas' | translate}}
+        </mat-card-subtitle>
+        <mat-chip-list>
+          <mat-chip color="primary">{{mantenidas}}</mat-chip>
+        </mat-chip-list>
+      </mat-card>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-subtitle>
+          {{ 'esat_mod_puertas_fallos' | translate}}
+        </mat-card-subtitle>
+        <mat-chip-list>
+          <mat-chip color="primary">{{sinfallas}}</mat-chip>
+        </mat-chip-list>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-divider></mat-divider>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button disabled
+      color="primary">
+      {{ 'esat_mod_revocar_licencia' | translate}}
+    </button>
+    <button
+      mat-raised-button disabled
+      color="primary">
+      {{ 'tree_mod_historico_asig' | translate}}
+    </button>
+    <button
+      mat-raised-button color="default"
+      (click)="onNoClick()">
+      {{ 'esat_mod_btn_cerrar' | translate}}
+    </button>
+  </div>
+</div>

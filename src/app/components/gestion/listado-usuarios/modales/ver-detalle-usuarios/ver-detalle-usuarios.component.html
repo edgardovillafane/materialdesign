@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>
+  {{ 'user_mod_detalle_usuario' | translate}}
+</h1>
+<div mat-dialog-content>
+  <mat-form-field class="medio">
+    <input
+      matInput
+      placeholder="{{ 'user_mod_nombre' | translate}}"
+      value="{{data.name}}"
+      disabled>
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput
+      placeholder="{{ 'user_mod_telefono' | translate}}"
+      value="{{data.telephone}}"
+      disabled>
+  </mat-form-field>
+
+  <mat-form-field class="medio">
+    <input
+      matInput
+      placeholder="{{ 'user_mod_email' | translate}}"
+      value="{{data.email}}"
+      disabled>
+  </mat-form-field>
+
+  <mat-divider></mat-divider>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="default"
+      (click)="onNoClick()">
+      {{ 'user_mod_cerrar' | translate}}
+    </button>
+  </div>
+</div>

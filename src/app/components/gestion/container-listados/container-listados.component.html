@@ -1,0 +1,30 @@
+
+<div *ngIf="this.globales.seccionId$==0">
+  <div id="preloader" class="loading">
+    <div class="grup">
+      <div id="loader"></div>
+      <div class="center_image"></div>
+    </div>
+  </div>
+   <mat-divider></mat-divider>
+</div>
+
+<div *ngIf="this.globales.seccionId$==1">
+<app-listado-esat #listado></app-listado-esat>
+<mat-divider></mat-divider>
+</div>
+
+<div *ngIf="this.globales.seccionId$==2">
+  <app-listado-arbol #listado></app-listado-arbol>
+  <mat-divider></mat-divider>
+</div>
+
+<div *ngIf="this.globales.seccionId$==3">
+  <app-listado-usuarios #listado></app-listado-usuarios>
+  <mat-divider></mat-divider>
+</div>
+
+<div *ngIf="this.globales.seccionId$==4">
+  <app-listado-licencias #listado></app-listado-licencias>
+  <mat-divider></mat-divider>
+</div>

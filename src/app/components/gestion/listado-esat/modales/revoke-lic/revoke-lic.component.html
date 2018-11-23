@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>
+  {{ 'esat_mod_revocar_licencia' | translate}}
+</h1>
+<div mat-dialog-content>
+  <mat-card *ngIf="itemAsig.length>0">
+    <mat-checkbox
+      [checked]="checkAsignada"
+      (change)="checkAsignada = !checkAsignada">
+      {{ 'esat_mod_revocar_usuarios' | translate}}
+    </mat-checkbox>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let item of itemAsig">
+        <span
+          matLine class="lic elipsis">
+          <mat-icon [ngClass]="item.icono">{{item.icono}}</mat-icon>
+          {{item.nombre}}</span>
+        <span
+          matLine class="elipsis asig">{{item.emailUser}}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  <mat-card *ngIf="itemNoAsig.length>0">
+    <mat-checkbox
+      [checked]="checkNoasignada"
+      (change)="checkNoasignada = !checkNoasignada">
+      {{'esat_mod_revocar_no_asignadas' | translate}}
+    </mat-checkbox>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let item of itemNoAsig">
+        <span
+          matLine class="lic">
+          <mat-icon [ngClass]="item.icono">{{item.icono}}</mat-icon>
+          {{item.nombre}} </span>
+        <span
+          matLine
+          class="elipsis sinasig">sin asignar</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="onNoClick()">
+    {{ 'esat_mod_btn_cerrar' | translate}}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="revocarLicencia()">{{ 'esat_mod_btn_enviar' |
+    translate}}
+  </button>
+</div>

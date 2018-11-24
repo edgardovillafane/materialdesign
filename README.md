@@ -8,13 +8,11 @@ This project has two separated layers communicate through jSon Callbacks Tokeniz
 This architecture keeps separate the business logic layer and data access layer from the UI (User Interface).
 We offer a code with Software Quality Standards including maintainability, dependability, efficiency and usability.
 
-![Menu options](./images/doc/jwt.png )
 
 ## Security
 Our architecture is based in a Frontend App connecting with a RESTful API through JSON callbacks.
 This Callbacks are protected by encripted token generated in Login Process.  
 It means: Only tokenized callbacks are allowed to request API responses.   
-![Menu options](./images/doc/toapi.png )
 
 
 
@@ -105,18 +103,5 @@ You can see the new Documentation file in documentation folder
 
 ## USER MANUAL 
 You can found a detailed specs and user manual of each section in:  
-- [SIDENAV](components/SidenavComponent.html#readme)
-- [eSAT](components/SidenavComponent.html#readme)
-- [TREE](components/SidenavComponent.html#readme)
-- [USERS](components/SidenavComponent.html#readme)
-
 
  
-   &nbsp; |  &nbsp;  
-   :-------------------------:|:-------------------------:
-   SIDENAV|eSAT
-   ![Menu options](./images/doc/sidenav.png )  |  ![Menu options](./images/doc/esat.png ) |
-   |
-   TREE             |  USERS
-   ![Menu options](./images/doc/tree.png )  |  ![Menu options](./images/doc/users.png ) |
-  

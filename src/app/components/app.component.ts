@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private matIconRegistry: MatIconRegistry,
               private domSanitizer: DomSanitizer,
               private titleService: Title) {
-    this.titleService.setTitle('MANUSA - eSAT');
+    this.titleService.setTitle('Material Design');
     this.matIconRegistry.addSvgIcon(
       'es-flag',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/es.png')
